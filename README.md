@@ -1,25 +1,33 @@
-# README
+# Project Title
 Ruby On Rails API for iTina Project 4
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Project description
+iTina is a quick itinerary planner that works with people with limited time and specific budgets; providing suggestions for places of interest and things to do
 
-Things you may want to cover:
+### Setup
+The backend is setup with Ruby On Rails.
 
-* Ruby version
+After cloning this repo, do peform the following
 
-* System dependencies
+* run this line in Terminal to install Gemfile packages:
 
-* Configuration
+```
+bundle install
+```
 
-* Database creation
+* test that setup by running this line in Terminal:
 
-* Database initialization
+```
+rails s
+```
 
-* How to run the test suite
+open up a new browser window and go to localhost:3000. If a welcome screen renders, then this installation is successful, and coding can begin
 
-* Services (job queues, cache servers, search engines, etc.)
+##Contributors
 
-* Deployment instructions
+This project team comprises of the following persons
 
-* ...
+* **Sam Tan** - Project Coordinator
+* **Charles Chia**
+* **Rachel Lee**
+* **Xavier Bulmer Witterbrown**
