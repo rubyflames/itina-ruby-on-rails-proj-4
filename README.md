@@ -15,13 +15,21 @@ After cloning this repo, do peform the following
 bundle install
 ```
 
+* initialize DB connection - type the following in Terminal
+```
+rails db:create
+```
+and
+```
+rails db:migrate
+```
 * test that setup by running this line in Terminal:
 
 ```
 rails s
 ```
 
-open up a new browser window and go to localhost:3000. If a welcome screen renders, then this installation is successful, and coding can begin
+open up a new browser window and go to localhost:3000. If a welcome screen renders, then this installation is successful, and coding can begin; basic POST and GET by POSTMAN should work
 
 ##Contributors
 
