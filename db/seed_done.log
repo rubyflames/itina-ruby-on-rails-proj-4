@@ -1,5 +1,4 @@
-# seed data user 1
-# <editor-fold
+# seed data
 u = User.create({
         name:"Anna",
         email:"manna@gmill.com",
@@ -23,34 +22,7 @@ p = i.places.create({
     })
 
 p.categories.create({name:"fun"})
-# </editor-fold>
 
-# seed data user 2
-# <editor-fold
-u2 = User.create({
-        name:"Jovil",
-        email:"kilonom@fire.org",
-        password:"abc"
-      })
-
-t2 = u2.trips.create({
-        duration:5,
-        pax:9,
-        budget: 3000
-      })
-
-i2 = t2.itineraries.create({})
-
-p2 = i2.places.create({
-        name:"Kamchatka",
-        lat:56.1327,
-        lng:159.5314,
-        price_pax: 1500,
-        duration: 250
-    })
-
-p2.categories.create({name:"adventure"})
-# </editor-fold>
 
 # l = Location.create({ name:"Spacemob", lat:1.3078123, long:103.8316541})
 
