@@ -1,5 +1,5 @@
 class Trip < ApplicationRecord
-  has_many :Location
+  has_many :Place
   belongs_to :User
 
   # belongs_to :user

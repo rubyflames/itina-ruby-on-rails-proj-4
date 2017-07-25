@@ -10,33 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725035129) do
+ActiveRecord::Schema.define(version: 20170724073645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "Locations_Trips", id: false, force: :cascade do |t|
-    t.bigint "Trip_id", null: false
-    t.bigint "Location_id", null: false
-  end
-
-  create_table "locations", force: :cascade do |t|
+  create_table "places", force: :cascade do |t|
     t.string "name"
     t.string "category"
     t.string "address"
     t.float "lat"
-    t.float "long"
-    t.float "price"
+    t.float "lng"
+    t.float "price_per_pax"
+    t.text "description"
+    t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "trips", force: :cascade do |t|
-    t.string "location_name"
-    t.string "user_name"
+    t.string "trip_name"
     t.string "start_date"
     t.string "end_date"
-    t.string "duration"
+    t.integer "duration"
     t.string "budget"
     t.string "category"
     t.string "pax"

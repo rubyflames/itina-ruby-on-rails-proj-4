@@ -18,7 +18,7 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
 
     if @trip.save
-      render json: @trip, status: :created, location: @trip
+      render json: @trip, status: :created, place: @trip
     else
       render json: @trip.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class TripsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def trip_params
-      params.require(:trip).permit(:location_name, :user_name, :start_date, :end_date, :duration, :budget, :category, :pax)
+      params.require(:trip).permit(:trip_name, :start_date, :end_date, :duration, :budget, :category, :pax)
     end
 end

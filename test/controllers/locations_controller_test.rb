@@ -1,36 +1,36 @@
 require 'test_helper'
 
-class LocationsControllerTest < ActionDispatch::IntegrationTest
+class PlacesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @location = locations(:one)
+    @place = places(:one)
   end
 
   test "should get index" do
-    get locations_url, as: :json
+    get places_url, as: :json
     assert_response :success
   end
 
-  test "should create location" do
-    assert_difference('Location.count') do
-      post locations_url, params: { location: { address: @location.address, category: @location.category, lat: @location.lat, long: @location.long, name: @location.name, price: @location.price } }, as: :json
+  test "should create place" do
+    assert_difference('Place.count') do
+      post places_url, params: { place: { address: @place.address, category: @place.category, lat: @place.lat, long: @place.long, name: @place.name, price: @place.price } }, as: :json
     end
 
     assert_response 201
   end
 
-  test "should show location" do
-    get location_url(@location), as: :json
+  test "should show place" do
+    get place_url(@place), as: :json
     assert_response :success
   end
 
-  test "should update location" do
-    patch location_url(@location), params: { location: { address: @location.address, category: @location.category, lat: @location.lat, long: @location.long, name: @location.name, price: @location.price } }, as: :json
+  test "should update place" do
+    patch place_url(@place), params: { place: { address: @place.address, category: @place.category, lat: @place.lat, long: @place.long, name: @place.name, price: @place.price } }, as: :json
     assert_response 200
   end
 
-  test "should destroy location" do
-    assert_difference('Location.count', -1) do
-      delete location_url(@location), as: :json
+  test "should destroy place" do
+    assert_difference('Place.count', -1) do
+      delete place_url(@place), as: :json
     end
 
     assert_response 204
