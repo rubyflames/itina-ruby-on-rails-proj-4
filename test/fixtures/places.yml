@@ -2,7 +2,7 @@
 
 one:
   name: MyString
-<<<<<<< HEAD
+
   lat: 1.5
   lng: 1.5
   price_pax: 1.5
@@ -14,18 +14,3 @@ two:
   lng: 1.5
   price_pax: 1.5
   duration: 1
-=======
-  category: MyString
-  address: MyString
-  lat: 1.5
-  long: 1.5
-  price: 1.5
-
-two:
-  name: MyString
-  category: MyString
-  address: MyString
-  lat: 1.5
-  long: 1.5
-  price: 1.5
->>>>>>> 4889905de938500d24e9cb26fffecede1ab62dd8

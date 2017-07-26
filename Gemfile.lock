@@ -131,8 +131,4 @@ DEPENDENCIES
   tzinfo-data
 
 BUNDLED WITH
-<<<<<<< HEAD
-   1.15.3
-=======
    1.15.2
->>>>>>> 4889905de938500d24e9cb26fffecede1ab62dd8
