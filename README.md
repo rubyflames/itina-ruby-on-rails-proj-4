@@ -1,92 +1,41 @@
-# @ Charles, Rachel
+# Project Title
+Ruby On Rails API for iTina Project 4
 
-## Just run
-1. db:create
-2. db:migrate
-3. db:seed
-4. rails s
-5. navigate to users/id
+## Project description
+iTina is a quick itinerary planner that works with people with limited time and specific budgets; providing suggestions for places of interest and things to do
 
-### To access nested objects/properties of user:
-Under users_controller, towards the bottom of file,
-```ruby
-  def set_user
-    @user = User.includes(:trips).find(params[:id])
-  end
+### Setup
+The backend is setup with Ruby On Rails.
+
+After cloning this repo, do peform the following
+
+* run this line in Terminal to install Gemfile packages:
+
 ```
-**Set**: `.includes(:trips)` between `User` and `find()`
-
-Then in the method `show` (processes queries & params passed in the **url**),  
-add:
-```ruby
-def show
-  render :json => @user, :include => {
-    :trips => {
-      :include => {
-        :itineraries => {
-          :include => {
-            :places => {
-              :include => :categories
-            }
-          }
-        }
-      }
-    }
-  }
-end
+bundle install
 ```
 
-## Result:
-**URL**: http://localhost:3000/users/2
-```json
-// 20170726024327
-// http://localhost:3000/users/2
-
-{
-  "id": 2,
-  "name": "Jovil",
-  "email": "kilonom@fire.org",
-  "password": "abc",
-  "created_at": "2017-07-25T18:13:57.088Z",
-  "updated_at": "2017-07-25T18:13:57.088Z",
-  "trips": [
-    {
-      "id": 2,
-      "duration": 5,
-      "pax": 9,
-      "budget": 3000.0,
-      "user_id": 2,
-      "created_at": "2017-07-25T18:13:57.109Z",
-      "updated_at": "2017-07-25T18:13:57.109Z",
-      "itineraries": [
-        {
-          "id": 2,
-          "trip_id": 2,
-          "created_at": "2017-07-25T18:13:57.127Z",
-          "updated_at": "2017-07-25T18:13:57.127Z",
-          "places": [
-            {
-              "id": 2,
-              "name": "Kamchatka",
-              "lat": "56.1327",
-              "lng": "159.5314",
-              "price_pax": 1500.0,
-              "duration": 250,
-              "created_at": "2017-07-25T18:13:57.150Z",
-              "updated_at": "2017-07-25T18:13:57.150Z",
-              "categories": [
-                {
-                  "id": 2,
-                  "name": "adventure",
-                  "created_at": "2017-07-25T18:13:57.172Z",
-                  "updated_at": "2017-07-25T18:13:57.172Z"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
+* initialize DB connection - type the following in Terminal
 ```
+rails db:create
+```
+and
+```
+rails db:migrate
+```
+* test that setup by running this line in Terminal:
+
+```
+rails s
+```
+
+open up a new browser window and go to localhost:3000. If a welcome screen renders, then this installation is successful, and coding can begin; basic POST and GET by POSTMAN should work
+
+##Contributors
+
+This project team comprises of the following persons
+
+* **Sam Tan** - Project Coordinator
+* **Charles Chia**
+* **Rachel Lee**
+* **Xavier Bulmer Witterbrown**
