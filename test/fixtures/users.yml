@@ -2,6 +2,7 @@
 
 one:
   name: MyString
+<<<<<<< HEAD
   email: MyString
   password: MyString
 
@@ -9,3 +10,18 @@ two:
   name: MyString
   email: MyString
   password: MyString
+=======
+  age: 1
+  gender: MyString
+  email: MyString
+  password: MyString
+  photo: MyString
+
+two:
+  name: MyString
+  age: 1
+  gender: MyString
+  email: MyString
+  password: MyString
+  photo: MyString
+>>>>>>> 4889905de938500d24e9cb26fffecede1ab62dd8

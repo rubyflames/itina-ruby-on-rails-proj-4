@@ -16,7 +16,11 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+<<<<<<< HEAD
 module ApiTesting2App
+=======
+module Itinaapi
+>>>>>>> 4889905de938500d24e9cb26fffecede1ab62dd8
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1

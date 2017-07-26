@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+<<<<<<< HEAD
   duration: 1
   pax: 1
   budget: 1.5
@@ -11,3 +12,21 @@ two:
   pax: 1
   budget: 1.5
   user: two
+=======
+  trip_name: MyString
+  start_date: MyString
+  end_date: MyString
+  duration: MyString
+  budget: MyString
+  category: MyString
+  pax: MyString
+
+two:
+  trip_name: MyString
+  start_date: MyString
+  end_date: MyString
+  duration: MyString
+  budget: MyString
+  category: MyString
+  pax: MyString
+>>>>>>> 4889905de938500d24e9cb26fffecede1ab62dd8
