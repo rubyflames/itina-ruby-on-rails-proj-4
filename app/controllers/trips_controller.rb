@@ -9,8 +9,13 @@ class TripsController < ApplicationController
   end
 
   # GET /trips/1
+  # shows nested itineraries and places
   def show
-    render json: @trip
+    render json: @trip, :include => {
+      :itineraries => {
+        :include => :places
+      }
+    }
   end
 
   # POST /trips
@@ -41,7 +46,7 @@ class TripsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_trip
-      @trip = Trip.find(params[:id])
+      @trip = Trip.includes(:itineraries).find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
