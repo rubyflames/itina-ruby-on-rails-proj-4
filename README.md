@@ -29,13 +29,15 @@ rails db:migrate
 rails s
 ```
 
-open up a new browser window and go to localhost:3000. If a welcome screen renders, then this installation is successful, and coding can begin; basic POST and GET by POSTMAN should work
+Open up a new browser window and go to **localhost:<u>3001</u>**.  
+If a welcome screen renders, then this installation is successful  
+and coding can begin; basic POST and GET by POSTMAN should work
 
-##Contributors
+## Contributors
 
 This project team comprises of the following persons
 
-* **Sam Tan** - Project Coordinator
-* **Charles Chia**
+* **Charles Chia** -*Promoted to **PM***
 * **Rachel Lee**
 * **Xavier Bulmer Witterbrown**
+* **Sam Tan** - ~~Project Coordinator~~
