@@ -47,7 +47,19 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   def destroy
+
+  
+    if @user.trips.length > 0
+        @user.trips do |trip|
+            if trip.itineraries.length > 0
+              itineraries.destroy_all
+            end
+            trip.destroy
+        end
+    end
+
     @user.destroy
+
   end
 
   private

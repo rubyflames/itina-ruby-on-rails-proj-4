@@ -5,12 +5,12 @@ class PlacesController < ApplicationController
   def index
     @places = Place.all
 
-    render json: @places
+    render json: @places, :include => :categories
   end
 
   # GET /places/1
   def show
-    render json: @place
+    render :json =>  @place, :include => :categories
   end
 
   # POST /places
@@ -41,7 +41,7 @@ class PlacesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_place
-      @place = Place.find(params[:id])
+      @place = Place.includes(:categories).find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

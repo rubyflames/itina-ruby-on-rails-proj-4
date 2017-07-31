@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
-  # ↓ added manually
-  has_many :trips
+  # ↓ added manually     ↓ not tested.
+  has_many :trips, dependent: :destroy
 
 
 end
