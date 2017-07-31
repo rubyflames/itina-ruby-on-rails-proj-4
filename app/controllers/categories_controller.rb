@@ -4,19 +4,13 @@ class CategoriesController < ApplicationController
   # GET /categories
   # shows nested places
   def index
-    @categories = Category.all
+    #Old default code for GET request
+    # @categories = Category.all
 
-    # @category = Category.find(params[:id]).places
+    #This code will provide a response to the GET request.
+    #Here, the items in the CATEGORIES db are randomized, and 2 are returned. 
+    @categories = Category.order("RANDOM()").limit(2)
 
-
-    #insert randomizer to return 3 places based on category e.g. "fun"
-    #fun=Category.find_by(name: "fun")-maybe wrong
-    # ^^^ this method would only return the category "fun", not the places with "fun" under category
-    # IF we have populated the Place database with column named 'category_id' and join table is in place
-    # we can filter as such:
-    # fun = Place.find_by(category_id: "1")
-    # hence we would be able to READ all entries in Place database that contain category_id=1
-    #randomize this fun variable
     render json: @categories, :include => :places
   end
 

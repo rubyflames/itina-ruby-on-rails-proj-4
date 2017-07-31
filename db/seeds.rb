@@ -50,8 +50,66 @@ p2 = i2.places.create({
     })
 
 p2.categories.create({name:"adventure"})
-# </editor-fold>
 
+# seed data user 3
+# <editor-fold
+u3 = User.create({
+        name:"mike",
+        email:"mike@fire.org",
+        password:"cba"
+      })
+
+t3 = u3.trips.create({
+        duration:5,
+        pax:9,
+        budget: 3000
+      })
+
+i3 = t3.itineraries.create({})
+
+p3 = i3.places.create({
+        name:"Kamchatka",
+        lat:56.1327,
+        lng:159.5314,
+        price_pax: 1500,
+        duration: 250
+    })
+
+p3.categories.create({name:"adventure"})
+
+# seed data user 4
+# <editor-fold
+u4 = User.create({
+        name:"john",
+        email:"john@fire.org",
+        password:"joh"
+      })
+
+t4 = u4.trips.create({
+        duration:1,
+        pax:4,
+        budget: 500
+      })
+
+i4 = t4.itineraries.create({})
+
+p4 = i4.places.create({
+        name:"National Museum of Singapore",
+        lat:1.2967,
+        lng:103.8486,
+        price_pax: 500,
+        duration: 1
+    })
+
+p4.categories.create({name:"learning"})
+
+
+
+
+
+
+
+# </editor-fold>
 # l = Location.create({ name:"Spacemob", lat:1.3078123, long:103.8316541})
 
 # start_date:DateTime.new(DateTime.now.year,DateTime.now.month,DateTime.now.day,15,0,0,'+08:00'),
