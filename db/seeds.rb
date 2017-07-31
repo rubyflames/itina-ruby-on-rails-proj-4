@@ -1,25 +1,25 @@
-# ["Food",
-# "Nightlife",
-# "Tourism",
-# "Gaming",
-# "Outdoors",
-# "Sightseeing",
-# "Arts/Entertainment",
-# "Sports",
-# "Shopping",
-# "Animals",
-# "Tech/Science",
-# "Exploration",
-# "Religious Places",
-# "Historical",
-# "Museum",
-# "Culture",
-# "Romantic",
-# "Group Activities",
-# "Family-Friendly",
-# "Water/Beach Activities"].each do |cat|
-#   Category.create(name: cat);
-# end
+["Food",
+"Nightlife",
+"Tourism",
+"Gaming",
+"Outdoors",
+"Sightseeing",
+"Arts/Entertainment",
+"Sports",
+"Shopping",
+"Animals",
+"Tech/Science",
+"Exploration",
+"Religious Places",
+"Historical",
+"Museum",
+"Culture",
+"Romantic",
+"Group Activities",
+"Family-Friendly",
+"Water/Beach Activities"].each do |cat|
+  Category.create(name: cat);
+end
 
 
 [
@@ -43,20 +43,17 @@
   ["Science Centre Singapore","15 Science Centre Road Singapore 609081 (Nearest MRT: Jurong East MRT)",1.333122,103.735652,12,2, [11, 15, 19]],
   ["Snow City","21 Jurong Town Hall Road (Nearest MRT: Jurong East MRT)",1.333122,103.735654,18,1, [8, 11, 19]],
   ["Chinese Garden","1 Chinese Garden Singapore 619795 (Nearest MRT: Chinese Garden MRT)",1.338987,103.729753,0,3, [3, 5, 6, 12, 14, 16, 17, 19]]
-].each do |place|
-
-  place.each do |name, address, lat, lng, price_pax, duration, categories|
-    p = Place.create( name:name,
+].each do |name, address, lat, lng, price_pax, duration, categories|
+    p = Place.create( {name:name,
                       address:address,
                       lat:lat,
                       lng:lng,
                       price_pax:price_pax,
-                      duration:duration )
+                      duration:duration })
     if categories
       cats = Category.where("id in (?)", categories)
       p.categories << cats
     end
-  end
 end
 
 
