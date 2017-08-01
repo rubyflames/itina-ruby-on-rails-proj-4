@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
 
     #This code will provide a response to the GET request.
     #Here, the items in the CATEGORIES db are randomized, and 2 are returned.
-    # @categories = Category.order("RANDOM()").limit(2)
+    #@categories = Category.order("RANDOM()").limit(2)
 
     render json: @categories, :include => :places
   end
