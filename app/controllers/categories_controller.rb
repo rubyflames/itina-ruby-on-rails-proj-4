@@ -53,6 +53,7 @@ class CategoriesController < ApplicationController
       @category = Category.includes(:places).find(params[:id])
     end
 
+
     # Only allow a trusted parameter "white list" through.
     def category_params
       params.require(:category).permit(:name)
