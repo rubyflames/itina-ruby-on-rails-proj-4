@@ -1,9 +1,23 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :update, :destroy]
+  before_action :search_place, only: [:index]
 
   # GET /places
   def index
-    @places = Place.all
+
+    # puts params[:categories_id] + "asiugciasugciuasgc"
+
+    # if(params[:categories_id])
+    #
+    #   @places = Category.where("id in (?)", req.body.categories_id).places
+    #
+    #
+    # else
+    #   puts "it was false"
+    #   @places = Place.all
+    #
+    # end
+
     render json: @places, :include => :categories
   end
 
@@ -43,7 +57,12 @@ class PlacesController < ApplicationController
       # no need la
       # @place = Place.includes(:categories).find(params[:id])
       @place = Place.find(params[:id])
+
     end
+
+    def search_place
+      puts "categories_id: "+params[:categories_id]
+      end
 
     # Only allow a trusted parameter "white list" through.
     def place_params
