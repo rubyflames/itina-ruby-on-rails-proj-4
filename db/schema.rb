@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20170725165506) do
     t.decimal "lng", precision: 10, scale: 6
     t.float "price_pax"
     t.integer "duration"
+    t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
