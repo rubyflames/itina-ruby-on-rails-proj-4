@@ -43,7 +43,7 @@ Under users_controller, towards the bottom of file,
 ```
 **Set**: `.includes(:trips)` between `User` and `find()`
 
-Then in the method `show` (processes queries & params passed in the **url**),  
+Then in the method `show` (processes queries & params passed in the **url**),
 add:
 ```ruby
 def show
@@ -62,6 +62,26 @@ def show
   }
 end
 ```
+
+#### How about in index? How to include relations in `Model.all`?
+**Actually,**
+```ruby
+# to see all places
+def index
+  @places = Place.all
+  render json: @places, :include => :categories
+end
+
+# to see by parameters
+def show  
+  render json: @category, :include => :places
+end
+# dont need
+# def set_user
+#   @user = User.includes(:trips).find(params[:id])
+# end
+```
+
 
 ## Result:
 **URL**: http://localhost:3000/users/2

@@ -14,6 +14,12 @@ class CategoriesController < ApplicationController
     render json: @categories, :include => :places
   end
 
+  def rand_something
+    @categories = Category.order("RANDOM()").limit(3)
+
+    render json: @categories, :include => :places
+  end
+
   # GET /categories/1
   # shows nested places
   def show
@@ -49,8 +55,11 @@ class CategoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      # @category = Category.find(params[:id])
-      @category = Category.includes(:places).find(params[:id])
+      if params[:id] == "random"
+        @category = Category.order("RANDOM()").limit(2)        
+      elsif Integer(params[:id])
+        @category = Category.includes(:places).find(params[:id])
+      end
     end
 
 
