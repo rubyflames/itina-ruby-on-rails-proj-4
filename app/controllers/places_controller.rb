@@ -50,8 +50,8 @@ class PlacesController < ApplicationController
       system('clear')
 
       if params[:category_ids]
-        # puts "catids: "
-        sql = """select p.* from places p inner join categories_places cp on p.id = cp.place_id
+        sql = """select p.* from places p 
+                 inner join categories_places cp on p.id = cp.place_id
                  where cp.category_id in (#{params[:category_ids]})
                  order by random() LIMIT 3;"""
          @places = ActiveRecord::Base.connection.exec_query(sql)
