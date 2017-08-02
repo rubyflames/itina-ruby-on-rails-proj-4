@@ -19,6 +19,7 @@ class PlacesController < ApplicationController
     # end
 
     render json: @places, :include => :categories
+
   end
 
   # GET /places/1
@@ -57,7 +58,6 @@ class PlacesController < ApplicationController
       # no need la
       # @place = Place.includes(:categories).find(params[:id])
       @place = Place.find(params[:id])
-
     end
 
     def search_place
@@ -92,10 +92,12 @@ class PlacesController < ApplicationController
         sql = """select p.* from places p inner join categories_places cp on p.id = cp.place_id
 
                  where cp.category_id in (#{params[:category_ids]}) LIMIT 3;"""
+
          @places = ActiveRecord::Base.connection.exec_query(sql)
       else
         @places = Place.all
       end
+    end
 
     end
 

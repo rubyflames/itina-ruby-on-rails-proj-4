@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
+
     @users = User.all
 
     render json: @users
@@ -48,7 +49,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   def destroy
 
-  
+
     if @user.trips.length > 0
         @user.trips do |trip|
             if trip.itineraries.length > 0
