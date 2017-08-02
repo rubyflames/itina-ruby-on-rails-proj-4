@@ -3,6 +3,9 @@ class PlacesController < ApplicationController
 
   # GET /places
   def index
+
+    puts "Im  insede the index place"
+
     @places = Place.all
     render json: @places, :include => :categories
   end
