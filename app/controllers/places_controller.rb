@@ -11,10 +11,10 @@ class PlacesController < ApplicationController
     #
     #   @places = Category.where("id in (?)", req.body.categories_id).places
     #
-    #
+    #xios.get('places',{params:{categories_id : this.state.value}})
     # else
     #   puts "it was false"
-    #   @places = Place.all
+    #@places = Place.all
     #
     # end
 
@@ -26,7 +26,7 @@ class PlacesController < ApplicationController
     render :json =>  @place, :include => :categories
   end
 
-  # POST /places
+  # POST /placesxios.get('places',{params:{categories_id : this.state.value}})
   def create
     @place = Place.new(place_params)
 
@@ -61,8 +61,43 @@ class PlacesController < ApplicationController
     end
 
     def search_place
-      puts "categories_id: "+params[:categories_id]
+
+      # puts :params
+      # Parameters: {"categories_id"=>"1"}
+
+      # puts params[:categories_id]
+      # Parameters: {"categories_id"=>"1,2"}
+      # 1,2
+      #puts params[:categories_id].to_s
+      #1,2,5
+
+      #puts paramsategories_id].gsub! "'", ''
+      #@place = Places.all
+
+      #puts "asedd id in (#{params[:categories_id]})"
+      #asedd id in (1,2)
+
+      #@places = Place.includes(:categories).where(:categories_places.categories_id =>[])
+
+      #.where("categories.id in (#{params[:categories_id]})")
+
+      #puts @places
+      #@places = null
+
+      # Category.where('').each do |c|
+      #   @places << c.places
+      # end
+
+      if params[:category_ids]
+        sql = """select p.* from places p inner join categories_places cp on p.id = cp.place_id
+
+                 where cp.category_id in (#{params[:category_ids]}) LIMIT 3;"""
+         @places = ActiveRecord::Base.connection.exec_query(sql)
+      else
+        @places = Place.all
       end
+
+    end
 
     # Only allow a trusted parameter "white list" through.
     def place_params

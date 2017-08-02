@@ -56,7 +56,7 @@ class CategoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_category
       if params[:id] == "random"
-        @category = Category.order("RANDOM()").limit(2)        
+        @category = Category.order("RANDOM()").limit(2)
       elsif Integer(params[:id])
         @category = Category.includes(:places).find(params[:id])
       end
