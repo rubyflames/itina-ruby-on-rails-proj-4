@@ -1,24 +1,10 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :update, :destroy]
-  # before_action :search_place, only: [:index]
+  before_action :search_place, only: [:index]
 
   # GET /places
   def index
-
-    # puts params[:categories_id] + "asiugciasugciuasgc"
-
-    # if(params[:categories_id])
-    #
-    #   @places = Category.where("id in (?)", req.body.categories_id).places
-    #
-    #
-    # else
-    #   puts "it was false"
-    #   @places = Place.all
-    #
-    # end
-
-    render json: @places, :include => :categories
+    render json: @places#, :include => :categories
   end
 
   # GET /places/1
@@ -57,12 +43,22 @@ class PlacesController < ApplicationController
       # no need la
       # @place = Place.includes(:categories).find(params[:id])
       @place = Place.find(params[:id])
-
     end
 
     def search_place
-      puts "categories_id: "+params[:categories_id]
+
+      system('clear')
+
+      if params[:category_ids]
+        # puts "catids: "
+        sql = """select p.* from places p inner join categories_places cp on p.id = cp.place_id
+                 where cp.category_id in (#{params[:category_ids]})
+                 order by random() LIMIT 3;"""
+         @places = ActiveRecord::Base.connection.exec_query(sql)
+      else
+        @places = Place.all
       end
+    end
 
     # Only allow a trusted parameter "white list" through.
     def place_params
