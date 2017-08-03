@@ -28,7 +28,14 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
+
+    puts user_params
+
+    render status: 200
+
     @user = User.new(user_params)
+
+
 
     if @user.save
       render json: @user, status: :created, location: @user
