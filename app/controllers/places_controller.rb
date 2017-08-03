@@ -89,8 +89,8 @@ class PlacesController < ApplicationController
       # end
 
       if params[:category_ids]
-        sql = """select p.* from places p inner join categories_places cp on p.id = cp.place_id
 
+        sql = """select p.* from places p inner join categories_places cp on p.id = cp.place_id
                  where cp.category_id in (#{params[:category_ids]}) LIMIT 3;"""
 
          @places = ActiveRecord::Base.connection.exec_query(sql)
@@ -99,7 +99,7 @@ class PlacesController < ApplicationController
       end
     end
 
-    
+
 
     # Only allow a trusted parameter "white list" through.
     def place_params
