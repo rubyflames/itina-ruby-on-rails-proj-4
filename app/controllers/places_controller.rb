@@ -18,7 +18,7 @@ class PlacesController < ApplicationController
     #
     # end
 
-    render json: @places, :include => :categories
+    render json: @places #, :include => :categories
 
   end
 
@@ -99,7 +99,7 @@ class PlacesController < ApplicationController
       end
     end
 
-    end
+    
 
     # Only allow a trusted parameter "white list" through.
     def place_params
