@@ -43,7 +43,7 @@ yarn build
 ```
 heroku create
 ```
-this will initialize Heroku to create a unique app name.
+this will initialize Heroku to create a unique app name. 
 4) To run the seeder file, run the following at the Back-End folder in the Terminal:
 ```
 heroku run rails db:create
