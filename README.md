@@ -33,7 +33,7 @@ Open up a new browser window and go to **localhost:<u>3001</u>**.
 If a welcome screen renders, then this installation is successful  
 and coding can begin; basic POST and GET by POSTMAN should work
 
-###Deployment to Heroku
+### Deployment to Heroku
 1) Front-End framework was compiled into a "Build Folder" by running the following at the Terminal (in Front-End folder):
 ```
 yarn build
@@ -54,9 +54,9 @@ heroku run rails db:migrate
 ```
 heroku run rails db:seed
 ```
-5)Proceed to "git add", "git commit", followed by "git push heroku master" where changes are made
+5) Proceed to "git add", "git commit", followed by "git push heroku master" where changes are made
 
-###Note:
+### Note:
 An error was encountered with Heroku buildpacks during deployment. TO rectify this, the following was done:
 1) At Back-End folder in Terminal, run:
 ```
